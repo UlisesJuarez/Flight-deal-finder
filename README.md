@@ -26,7 +26,7 @@ Nos notificamos via SMS con ayuda de twilio cuando se encuentre el menor precio.
 
 Del mismo modo sí se desea se pueden agregar clientes que desean recibir la información vía correo. Tal y como se ve en la imagen se le pedirán los datos y se enviaran a el excel users.
 
-![](img/im5.jpeg)
+![](img/img5.jpeg)
 
 Ahora comprobamos y observamos que se tienen esos datos en la hoja de excel
 
