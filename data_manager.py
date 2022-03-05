@@ -5,6 +5,7 @@ import os
 load_dotenv()
 
 URL_SHEETY=os.getenv("URL_SHEETY")
+URL_SHEETY_USERS = os.getenv("URL_SHEETY_USERS")
 BEARER_SECRET=os.getenv("BEARER_SECRET")
 
 bearer_header={
@@ -14,6 +15,7 @@ bearer_header={
 class DataManager:
     def __init__(self):
         self.destination_data={}
+        self.customer_data={}
     
     def get_destination_data(self):
         response=requests.get(url=URL_SHEETY,headers=bearer_header)
@@ -30,3 +32,9 @@ class DataManager:
             }
             reponse=requests.put(url=f"{URL_SHEETY}/{city['id']}",json=new_code,headers=bearer_header)
             print(reponse.text)
+    def get_customer_emails(self):
+        customers_endpoint = URL_SHEETY_USERS
+        response = requests.get(url=customers_endpoint,headers=bearer_header)
+        data = response.json()
+        self.customer_data = data["users"]
+        return self.customer_data

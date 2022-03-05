@@ -23,3 +23,15 @@ Con ayuda de la API tequila y gracias al código de las ciudades obtenemos los p
 Nos notificamos via SMS con ayuda de twilio cuando se encuentre el menor precio.
 
 ![](img/im5.jpeg)
+
+Del mismo modo sí se desea se pueden agregar clientes que desean recibir la información vía correo. Tal y como se ve en la imagen se le pedirán los datos y se enviaran a el excel users.
+
+![](img/im5.jpeg)
+
+Ahora comprobamos y observamos que se tienen esos datos en la hoja de excel
+
+![](img/img6.JPG)
+
+Finalmente tambien enviamos las ofertas via email
+
+![](img/img7.JPG)
