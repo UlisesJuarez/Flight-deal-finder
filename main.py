@@ -1,16 +1,15 @@
-import requests
-from dotenv import load_dotenv
-import os
+from data_manager import DataManager
 
-load_dotenv()
+data_manager=DataManager()
+sheety_data=data_manager.get_destination_data()
 
-URL_SHEETY=os.getenv("URL_SHEETY")
-BEARER_SECRET=os.getenv("BEARER_SECRET")
 
-bearer_header={
-    "Authorization":BEARER_SECRET
-}
+if sheety_data[0]["iataCode"]=="":
+    from flight_search import FlightSearch
+    flight_search = FlightSearch()
+    for row in sheety_data:
+        row["iataCode"] = flight_search.get_destination_code(row["city"])
+    print(f"sheet_data:\n {sheety_data}")
 
-excel_peticion = requests.get(url=URL_SHEETY, headers=bearer_header)
-
-print(excel_peticion.text)
+    data_manager.destination_data=sheety_data
+    data_manager.update_destination_codes()
