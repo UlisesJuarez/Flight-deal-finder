@@ -9,7 +9,7 @@ if sheety_data[0]["iataCode"]=="":
     flight_search = FlightSearch()
     for row in sheety_data:
         row["iataCode"] = flight_search.get_destination_code(row["city"])
-    print(f"sheet_data:\n {sheety_data}")
+    print(sheety_data)
 
     data_manager.destination_data=sheety_data
     data_manager.update_destination_codes()
