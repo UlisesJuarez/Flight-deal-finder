@@ -50,3 +50,4 @@ for destination_code in destinations:
 
         link = f"https://www.google.co.uk/flights?hl=en#flt={flight.origin_airport}.{flight.destination_airport}.{flight.out_date}*{flight.destination_airport}.{flight.origin_airport}.{flight.return_date}"
         notification_manager.send_emails(emails, message, link)
+        notification_manager.send_sms(message=message)
